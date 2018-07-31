@@ -1,1 +1,3 @@
 # WPFCustomControlSample
+
+忘れるのでメモ
