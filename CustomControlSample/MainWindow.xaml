@@ -18,10 +18,42 @@
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding IsEditable, Mode=TwoWay}"
                                   Margin="5"/>
+                        
+                        <!-- Custom Control 作って汎用的にする場合 -->
                         <controls:EditableText IsEditable="{Binding IsEditable, Mode=OneWay}"
                                                Text="{Binding Text, Mode=TwoWay}"
                                                MinWidth="100"
                                                VerticalAlignment="Center"/>
+                        
+                        <!-- ContentControl でこの場だけ対処する場合 -->
+                        <ContentControl MinWidth="100"
+                                        VerticalAlignment="Center">
+                            <ContentControl.Style>
+                                <Style TargetType="{x:Type ContentControl}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ContentControl}">
+                                                <Label Content="{Binding Text}"
+                                                       VerticalAlignment="Center"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEditable}" Value="true">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type ContentControl}">
+                                                            <TextBox Text="{Binding Text}"/>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                        </ContentControl>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
