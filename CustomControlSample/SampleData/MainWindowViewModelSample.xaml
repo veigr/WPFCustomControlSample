@@ -1,0 +1,10 @@
+﻿<vm:MainWindowViewModel xmlns:vm="clr-namespace:CustomControlSample.ViewModels">
+    <vm:MainWindowViewModel.Details>
+        <vm:DetailViewModel IsEditable="True"
+                            Text="hoge"/>
+        <vm:DetailViewModel IsEditable="False"
+                            Text="fuga"/>
+        <vm:DetailViewModel IsEditable="True"
+                            Text="piyo"/>
+    </vm:MainWindowViewModel.Details>
+</vm:MainWindowViewModel>

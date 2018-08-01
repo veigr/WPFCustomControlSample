@@ -10,7 +10,7 @@
         Title="MainWindow"
         Height="450"
         Width="800"
-        d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}">
+        d:DataContext="{d:DesignData /SampleData/MainWindowViewModelSample.xaml}">
     <Grid>
         <ItemsControl ItemsSource="{Binding Details}">
             <ItemsControl.ItemTemplate>
