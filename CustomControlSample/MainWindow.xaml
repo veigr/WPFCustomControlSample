@@ -54,6 +54,11 @@
                                 </Style>
                             </ContentControl.Style>
                         </ContentControl>
+                        
+                        <!-- ↑の ContentControl を UserControl に抜き出す場合 -->
+                        <local:EditableTextUC DataContext="{Binding}"
+                                              MinWidth="100"
+                                              VerticalAlignment="Center"/>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
